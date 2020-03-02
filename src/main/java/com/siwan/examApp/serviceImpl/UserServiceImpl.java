@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
 
 	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-	private static final String NAME_SPACE = "com.siwan.examApp.dao.UserDAO.";
+//	private static final String NAME_SPACE = "com.siwan.examApp.dao.UserDAO.";
 
 //	@Autowired
 //	private SqlSession sqlSession;
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
 	public List selectUserList() {
 //		List<UserVO> userList = sqlSession.selectList(NAME_SPACE+"selectUserList");
 		List<UserVO> userList = userDao.selectUserList();
-		System.out.println(userList.toString());
+		logger.info(userList.toString());
 		return null;
 	}
 
