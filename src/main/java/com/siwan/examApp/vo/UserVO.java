@@ -1,54 +1,48 @@
 package com.siwan.examApp.vo;
 
+import java.util.List;
+
 public class UserVO {
 
-	private String userId;
-	private String userPw;
-	private String userLvl;
-	private String userName;
-	private String regDtm;
-	private String updDtm;
+	private String name;
+	private String age;
+	private String gender;
+	private String birth;
+	private List<UserVO> userVOList;
 
-	public String getUserId() {
-		return userId;
+	public String getName() {
+		return name;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getUserPw() {
-		return userPw;
+	public String getAge() {
+		return age;
 	}
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	public void setAge(String age) {
+		this.age = age;
 	}
-	public String getUserLvl() {
-		return userLvl;
+	public String getGender() {
+		return gender;
 	}
-	public void setUserLvl(String userLvl) {
-		this.userLvl = userLvl;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getUserName() {
-		return userName;
+	public String getBirth() {
+		return birth;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-	public String getRegDtm() {
-		return regDtm;
+	public List<UserVO> getUserVOList() {
+		return userVOList;
 	}
-	public void setRegDtm(String regDtm) {
-		this.regDtm = regDtm;
-	}
-	public String getUpdDtm() {
-		return updDtm;
-	}
-	public void setUpdDtm(String updDtm) {
-		this.updDtm = updDtm;
+	public void setUserVOList(List<UserVO> userVOList) {
+		this.userVOList = userVOList;
 	}
 	@Override
 	public String toString() {
-		return "UserVO [userId=" + userId + ", userPw=" + userPw + ", userLvl=" + userLvl + ", userName=" + userName
-				+ ", regDtm=" + regDtm + ", updDtm=" + updDtm + "]";
+		return "UserVO [name=" + name + ", age=" + age + ", gender=" + gender + ", birth=" + birth + ", userVOList="
+				+ userVOList + "]";
 	}
-
 }
