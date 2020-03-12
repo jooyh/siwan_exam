@@ -2,10 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.siwan.examApp.dao.UserDAO">
 
-    <select id="selectUserList" resultType="UserVO">
+    <select id="selectUserList" parameterType="UserVO" resultType="UserVO">
         SELECT /*[com.siwan.examApp.dao.UserDAO.selectUserList] 사용자 목록 조회 */
              *
-          FROM NB_USER
+          FROM CUSTOMER
+         WHERE 1=1
+           AND LAST_NAME = #{name}
+           AND LAST_NAME = #{age}
+           AND LAST_NAME = #{gender}
+           AND LAST_NAME = #{birth}
     </select>
 
 </mapper>

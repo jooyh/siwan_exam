@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService{
 
 	public List selectUserList() {
 //		List<UserVO> userList = sqlSession.selectList(NAME_SPACE+"selectUserList");
-		List<UserVO> userList = userDao.selectUserList();
-		logger.info(userList.toString());
+//		List<UserVO> userList = userDao.selectUserList();
+//		logger.info(userList.toString());
 		return null;
 	}
 
@@ -35,4 +35,26 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
+	@Override
+	public int updateLogic(UserVO vo) {
+		List<UserVO> userList = vo.getUserVOList();
+		for(UserVO userVo : userList) {
+			insertUserData(userVo);
+			updateRentalData(userVo);
+		}
+		return 0;
+	}
+
+	private int insertUserData(UserVO vo) {
+		// TODO Auto-generated method stub
+		logger.debug("insertUserData",vo);
+		List<UserVO> userList = userDao.selectUserList(vo);
+		return 0;
+	}
+
+	private int updateRentalData(UserVO vo) {
+		logger.debug("updateRentalData",vo);
+		List<UserVO> userList = userDao.selectUserList(vo);
+		return 0;
+	}
 }

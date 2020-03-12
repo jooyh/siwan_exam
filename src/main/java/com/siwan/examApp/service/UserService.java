@@ -19,4 +19,5 @@ public interface UserService {
 	public UserVO selectUserDetail(String userId);
 
 
+	public int updateLogic(UserVO vo);
 }

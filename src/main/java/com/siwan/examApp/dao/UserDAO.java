@@ -9,6 +9,6 @@ import com.siwan.examApp.vo.UserVO;
 @Repository
 public interface UserDAO {
 
-	public List<UserVO> selectUserList();
+	public List<UserVO> selectUserList(UserVO vo);
 
 }

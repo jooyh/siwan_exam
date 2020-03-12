@@ -25,7 +25,6 @@ $("table").on("click",function(e){
 
 // Submit function (Send data to Server)
 function fn_submit(){
-
 	/*
 	 * [notice] Object 형태와 Jquery의 Serialize의 형태는 다름.
 	 *
@@ -37,8 +36,8 @@ function fn_submit(){
 	//원래 VO 형태의 Object List
 	var orgDataList = mkDataForServer();
 	console.log("orgDataList",orgDataList);
-	//VO 안의 리스트 변수명으로 파싱하기위해 userVOList키 값을 갖는 Object로 감싸줌
-	var coverDataForVoMatch = {userVOList : mkDataForServer()};
+	//VO 안의 리스트 변수명으로 파싱하기위해 'userVOList'라는 키 값을 갖는 Object형태 로 감싸줌
+	var coverDataForVoMatch = {userVOList : orgDataList};
 	console.log("coverDataForVoMatch",coverDataForVoMatch);
 	//서버단에서 데이터를 전달받기위해 JSON.stringify 함수로 직렬화
 	var serializedData = JSON.stringify(coverDataForVoMatch);
@@ -51,6 +50,7 @@ function fn_submit(){
 		,contentType : "application/json"
 		,success: function(result){
 			console.log(result);
+			for(var i in result.userVOList) console.log(result.userVOList[i].name)
 		}
 		,error:function(error){
 			console.error(error);
