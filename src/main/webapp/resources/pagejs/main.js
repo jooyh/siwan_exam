@@ -6,12 +6,21 @@ fn_init = function(){
 }
 
 // Event ( thead check box click )
-$("#allChk").on("click",function(){
-	if($(this).is(":checked")){
-		$(".chk").attr("checked", true);
+$("#allChk").on("click",function(e){
+	if($(e.target).is(":checked")){
+		$(".chk").prop("checked", true);
 	}else{
-		$(".chk").attr("checked", false);
+		$(".chk").prop("checked", false);
 	}
+});
+
+// Event ( row click )
+$("table").on("click",function(e){
+	console.log($(e.target));
+	var rowChk = $(e.target).parents("tr").find(".chk");
+	var checkFlag = $(rowChk).is(":checked");
+	if(checkFlag) $(rowChk).prop("checked",false);
+	else $(rowChk).prop("checked",true);
 });
 
 // Submit function (Send data to Server)
@@ -27,10 +36,13 @@ function fn_submit(){
 
 	//원래 VO 형태의 Object List
 	var orgDataList = mkDataForServer();
+	console.log("orgDataList",orgDataList);
 	//VO 안의 리스트 변수명으로 파싱하기위해 userVOList키 값을 갖는 Object로 감싸줌
 	var coverDataForVoMatch = {userVOList : mkDataForServer()};
+	console.log("coverDataForVoMatch",coverDataForVoMatch);
 	//서버단에서 데이터를 전달받기위해 JSON.stringify 함수로 직렬화
 	var serializedData = JSON.stringify(coverDataForVoMatch);
+	console.log("serializedData",serializedData);
 
 	$.ajax({
 		 url : "/testSubmit"
@@ -51,7 +63,9 @@ function mkDataForServer(){
 	var dataList = [];
 	$(".chk:checked").each(function(i,item){
 		var data = $(item).attr("data");
-		dataList.push(JSON.parse(data));
+		data = JSON.parse(data);
+		data.userLvl = $("#lvl").val();
+		dataList.push(data);
 	});
 	return dataList;
 }
@@ -61,7 +75,7 @@ function mkRow(data){
 	var html = ``;
 	for(var i in data){
 		html += `
-		<tr onclick="">
+		<tr>
 			<td><input type="checkbox" class="chk" id="chk${i}"
 			data='${JSON.stringify(data[i])}'></td>
 			<td>${data[i].name}</td>

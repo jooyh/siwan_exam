@@ -14,9 +14,13 @@
         width : 100px;
         height : 40px;
     }
+    input{
+        height : 30px;
+    }
 </style>
 <section class='contents'>
-    <button onclick="fn_submit()">제출</button>
+    <input type="text" id="lvl" />
+    <button onclick="fn_submit()">등급상향</button>
     <div>
         <table>
             <colgroup>

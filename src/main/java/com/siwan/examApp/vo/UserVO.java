@@ -8,8 +8,15 @@ public class UserVO {
 	private String age;
 	private String gender;
 	private String birth;
+	private String userLvl;
 	private List<UserVO> userVOList;
 
+	public String getUserLvl() {
+		return userLvl;
+	}
+	public void setUserLvl(String userLvl) {
+		this.userLvl = userLvl;
+	}
 	public String getName() {
 		return name;
 	}
@@ -42,7 +49,9 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [name=" + name + ", age=" + age + ", gender=" + gender + ", birth=" + birth + ", userVOList="
-				+ userVOList + "]";
+		return "UserVO [name=" + name + ", age=" + age + ", gender=" + gender + ", birth=" + birth + ", userLvl="
+				+ userLvl + ", userVOList=" + userVOList + "]";
 	}
+
+
 }
